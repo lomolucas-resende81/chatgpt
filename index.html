@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SAM | Gerador de Relatório por CSS</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="app-header">
+      <h1>SAM24H · Gerador de Relatório Executivo</h1>
+      <p>Upload de arquivo <code>.css</code> → extração de dados → revisão manual → HTML final no template padrão SAM.</p>
+    </header>
+
+    <section class="controls card">
+      <div class="row">
+        <label for="cssFile">Arquivo CSS de origem</label>
+        <input id="cssFile" type="file" accept=".css,text/css" />
+      </div>
+      <div class="row actions">
+        <button id="extractBtn" type="button">Extrair dados</button>
+        <button id="previewBtn" type="button">Gerar prévia</button>
+        <button id="downloadBtn" type="button">Baixar HTML final</button>
+      </div>
+      <p id="status" class="status">Aguardando arquivo.</p>
+    </section>
+
+    <section class="grid-2">
+      <section class="card panel">
+        <h2>Dados extraídos/editáveis</h2>
+        <div class="form-grid">
+          <label>Título principal<textarea id="title"></textarea></label>
+          <label>Subtítulo<textarea id="subtitle"></textarea></label>
+          <label>Base analisada<input id="baseAnalyzed" type="text" /></label>
+          <label>Data do relatório<input id="reportDate" type="text" /></label>
+
+          <label>Negócios totais<input id="kpiTotalDeals" type="text" /></label>
+          <label>Pipeline aberto<input id="kpiPipeline" type="text" /></label>
+          <label>Receita ganha<input id="kpiRevenueWon" type="text" /></label>
+          <label>Sem atividade<input id="kpiNoActivity" type="text" /></label>
+
+          <label>Leitura executiva<textarea id="executiveRead"></textarea></label>
+          <label>Alerta principal<textarea id="mainAlert"></textarea></label>
+          <label>Mensagem final<textarea id="finalMessage"></textarea></label>
+
+          <label>Distribuição por fase (uma por linha: <code>Nome|Valor</code>)<textarea id="phaseDistribution"></textarea></label>
+          <label>Status do pipeline (uma por linha: <code>Nome|Valor</code>)<textarea id="statusDistribution"></textarea></label>
+          <label>Oportunidades (uma por linha: <code>Negócio|Fase|Valor|Dias|Próxima ação</code>)<textarea id="opportunities"></textarea></label>
+          <label>Plano de ação (uma por linha)<textarea id="actionPlan"></textarea></label>
+        </div>
+      </section>
+
+      <section class="card panel">
+        <h2>Pré-visualização do HTML final</h2>
+        <iframe id="previewFrame" title="Prévia do relatório SAM"></iframe>
+      </section>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
